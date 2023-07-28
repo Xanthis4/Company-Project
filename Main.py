@@ -8,18 +8,30 @@ import pickle
 st.set_page_config(page_title="Loan Approval", page_icon="💰", layout='wide')
 
 # For safety of code
-st.markdown(
+# st.markdown(
+#     """
+#     <style>
+#     .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
+#     .styles_viewerBadge_1yB5, .viewerBadge_link__1S137,
+#     .viewerBadge_text__1JaDK {
+#         display: none;
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
+
+def hide_github_logo():
+    hide_css = """
+        <style>
+        .css-1wbqy5l.e3g6aar1 {
+            display: none;
+        }
+        </style>
     """
-    <style>
-    .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
-    .styles_viewerBadge_1yB5, .viewerBadge_link__1S137,
-    .viewerBadge_text__1JaDK {
-        display: none;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+    st.markdown(hide_css, unsafe_allow_html=True)
+
+hide_github_logo()
 
 # Authentication page
 def login_page():
