@@ -7,6 +7,20 @@ import pickle
 # Page attributes
 st.set_page_config(page_title="Loan Approval", page_icon="💰", layout='wide')
 
+# For safety of code
+st.markdown(
+    """
+    <style>
+    .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
+    .styles_viewerBadge_1yB5, .viewerBadge_link__1S137,
+    .viewerBadge_text__1JaDK {
+        display: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Authentication page
 def login_page():
 
