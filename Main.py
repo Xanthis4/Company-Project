@@ -52,6 +52,10 @@ def Default_Page():
 
     # Home Page having project description
     def Project_Description():
+        # st.title("Display Image Example")
+    
+    # Load an image from a local file
+        
         st.title(":red[Loan Approval Prediction Model]")
         st.subheader(":green[This model having efficiency 91.947%]")
         st.subheader(":blue[Description:]")
@@ -125,7 +129,7 @@ def Default_Page():
         else:
             st.session_state.Self_Employed_conv = 0
         st.session_state.Loan_Amount_Term = left.selectbox(":orange[Loan Amount Term]",options = [360,180,480,300,240,120,84,60,36,12],key = 'Loan_amount_term')
-        st.session_state.cibil_score = right.number_input(":violet[Cibil Score]",min_value = 350, max_value= 900,step=1,key ="cibil")
+        st.session_state.cibil_score = right.number_input(":violet[Cibil Score]",min_value = 400, max_value= 900,step=1,key ="cibil")
         st.session_state.income_annum = right.number_input(":violet[Annual Income]",min_value = 100000, max_value= 9900000,step=100000, key = 'income')
         st.session_state.loan_amount = right.number_input(":violet[Loan Amount]",min_value = 300000, max_value= 39500000,step=100000, key = "loanamount")
         st.session_state.resedential_asset = middle.number_input(":blue[Resedential Asset]",min_value = 0, max_value= 29100000,step=100000, key = "resedential")
@@ -140,9 +144,11 @@ def Default_Page():
                 prediction = clf.predict([[st.session_state.Dependents,st.session_state.income_annum,st.session_state.loan_amount,st.session_state.Loan_Amount_Term,st.session_state.cibil_score,st.session_state.resedential_asset,st.session_state.commercial_asset,st.session_state.luxury_asset,st.session_state.bank_asset,st.session_state.Education_conv,st.session_state.Self_Employed_conv]])
 
                 if prediction == 1:
-                    st.header(":green[Congratulations!! Your Loan is Approved]")
+                    image_path = "Loan Approved.jpg"
+                    st.image(image_path, caption="Approved", use_column_width=True)
                 else:
-                    st.header(":red[Sorry!! Your request is denied]")
+                    image_path = "NOt Approved.jpg"
+                    st.image(image_path, caption="Not Approved", use_column_width=True)
         st.button("Predict",on_click=predict,key = 'predict')
     
     # logout Function
