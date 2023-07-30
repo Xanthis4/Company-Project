@@ -147,7 +147,7 @@ def Default_Page():
                     image_path = "Loan Approved.jpg"
                     st.image(image_path, caption="Approved", use_column_width=True)
                 else:
-                    image_path = "NOt Approved.jpg"
+                    image_path = "Not Approved.jpg"
                     st.image(image_path, caption="Not Approved", use_column_width=True)
         st.button("Predict",on_click=predict,key = 'predict')
     
